@@ -20,10 +20,11 @@ public class TeleOP extends OpMode {
     public void loop() {
         //code that runs repeat
 
-        if (gamepad1.a){
-            telemetry.addData("A button Pressed",gamepad1.a);
-            telemetry.update();
-            motor.setPower(0.5);
+        if (gamepad1.dpad_up){
+            motor.setPower(1);
+        }
+        if (gamepad1.dpad_down) {
+            motor.setPower(-1);
         }
     }
 
