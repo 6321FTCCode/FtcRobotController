@@ -12,16 +12,16 @@ public class TeleOP extends OpMode {
     DcMotor motorFL;
     DcMotor motorBR;
     DcMotor motorBL;
-    DcMotor spinner1;
+    //DcMotor spinner1;
 
     @Override
     public void init() {
         //code that runs once when INIT is pressed
-        motorFR  = hardwareMap.get(DcMotor.class, "motor");
-        motorFL  = hardwareMap.get(DcMotor.class, "motorFL");
-        motorBR  = hardwareMap.get(DcMotor.class, "motorBR");
-        motorBL  = hardwareMap.get(DcMotor.class, "motorBL");
-        spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
+        motorFR  = hardwareMap.get(DcMotor.class, "front_right_motor");
+        motorFL  = hardwareMap.get(DcMotor.class, "front_left_motor");
+        motorBR  = hardwareMap.get(DcMotor.class, "back_right_motor");
+        motorBL  = hardwareMap.get(DcMotor.class, "back_left_motor");
+        //spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
         telemetry.addData("Hardware: ", "Initialized");
 
         //motorFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -30,7 +30,7 @@ public class TeleOP extends OpMode {
     @Override
     public void loop() {
         //code that runs repeat
-        double speed = 0.5;
+        double speed = 1;
 
 //        float lTrigger = gamepad1.left_trigger;
 //        float rTrigger = gamepad1.right_trigger;
@@ -93,7 +93,7 @@ public class TeleOP extends OpMode {
             speed = 1;
         }
 
-        
+
     }
 
 //    public void encoder(int turnage) {
