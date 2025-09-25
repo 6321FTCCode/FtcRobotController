@@ -12,6 +12,7 @@ public class TeleOP extends OpMode {
     DcMotor motorFL;
     DcMotor motorBR;
     DcMotor motorBL;
+    DcMotor spinner1;
 
     @Override
     public void init() {
@@ -20,6 +21,7 @@ public class TeleOP extends OpMode {
         motorFL  = hardwareMap.get(DcMotor.class, "motorFL");
         motorBR  = hardwareMap.get(DcMotor.class, "motorBR");
         motorBL  = hardwareMap.get(DcMotor.class, "motorBL");
+        spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
         telemetry.addData("Hardware: ", "Initialized");
 
         //motorFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -87,9 +89,11 @@ public class TeleOP extends OpMode {
             motorBL.setPower(0);
             motorBR.setPower(0);
         }
-        if (gamepad1.a) {
+        if (gamepad1.y) {
             speed = 1;
         }
+
+        
     }
 
 //    public void encoder(int turnage) {
