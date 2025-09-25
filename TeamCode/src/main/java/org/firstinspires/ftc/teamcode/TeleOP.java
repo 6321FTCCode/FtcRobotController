@@ -87,9 +87,9 @@ public class TeleOP extends OpMode {
             motorBL.setPower(0);
             motorBR.setPower(0);
         }
-//        if (gamepad1.a) {
-//            encoder(2);
-//        }
+        if (gamepad1.a) {
+            speed = 1;
+        }
     }
 
 //    public void encoder(int turnage) {
