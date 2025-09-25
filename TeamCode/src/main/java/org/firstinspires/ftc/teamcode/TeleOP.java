@@ -73,7 +73,19 @@ public class TeleOP extends OpMode {
 
         if (gamepad1.right_stick_x<0){
             motorFR.setPower(speed);
+            motorFL.setPower(speed);
             motorBL.setPower(speed);
+            motorBR.setPower(speed);
+        } else if (gamepad1.right_stick_x>0){
+            motorFR.setPower(-speed);
+            motorFL.setPower(-speed);
+            motorBL.setPower(-speed);
+            motorBR.setPower(-speed);
+        } else {
+            motorFR.setPower(0);
+            motorFL.setPower(0);
+            motorBL.setPower(0);
+            motorBR.setPower(0);
         }
 //        if (gamepad1.a) {
 //            encoder(2);
