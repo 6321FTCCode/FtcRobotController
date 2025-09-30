@@ -30,7 +30,7 @@ public class TeleOP extends OpMode {
     @Override
     public void loop() {
         //code that runs repeat
-        double speed = 1;
+        double speed = 0.75;
 
 //        float lTrigger = gamepad1.left_trigger;
 //        float rTrigger = gamepad1.right_trigger;
@@ -74,6 +74,7 @@ public class TeleOP extends OpMode {
         }
 
         if (gamepad1.right_stick_x<0){
+            //rotate left
             motorFR.setPower(speed);
             motorFL.setPower(speed);
             motorBL.setPower(speed);
