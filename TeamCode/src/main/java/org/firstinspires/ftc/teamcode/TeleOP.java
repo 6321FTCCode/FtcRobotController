@@ -12,7 +12,6 @@ public class TeleOP extends OpMode {
     DcMotor motorFL;
     DcMotor motorBR;
     DcMotor motorBL;
-    //DcMotor spinner1;
     DcMotor spinner1;
 
     @Override
@@ -93,7 +92,7 @@ public class TeleOP extends OpMode {
         }
 
         if (gamepad1.right_trigger>0){
-            spinner1.setPower(0.8);
+            spinner1.setPower(-0.8);
         } else {
             spinner1.setPower(0);
         }
