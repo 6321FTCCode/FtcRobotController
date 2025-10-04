@@ -13,6 +13,7 @@ public class TeleOP extends OpMode {
     DcMotor motorBR;
     DcMotor motorBL;
     DcMotor spinner1;
+    DcMotor conveyor;
 
     @Override
     public void init() {
@@ -22,6 +23,7 @@ public class TeleOP extends OpMode {
         motorBR  = hardwareMap.get(DcMotor.class, "back_right_motor");
         motorBL  = hardwareMap.get(DcMotor.class, "back_left_motor");
         spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
+        conveyor = hardwareMap.get(DcMotor.class, "conveyer");
         telemetry.addData("Hardware: ", "Initialized");
 
         motorFR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -29,6 +31,7 @@ public class TeleOP extends OpMode {
         motorBR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorBL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         spinner1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        conveyor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         //motorFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
@@ -93,6 +96,12 @@ public class TeleOP extends OpMode {
             spinner1.setPower(0.8);
         } else {
             spinner1.setPower(0);
+        }
+
+        if (gamepad1.y){
+            conveyor.setPower(1);
+        } else {
+            conveyor.setPower(0);
         }
 //        if (gamepad1.y) {
 //            speed = 1;
