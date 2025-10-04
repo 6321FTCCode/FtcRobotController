@@ -34,6 +34,8 @@ package org.firstinspires.ftc.teamcode;
 
 import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
 
+import static java.lang.Thread;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
@@ -263,6 +265,7 @@ public class TeleOP extends OpMode {
                     launchState = LaunchState.LAUNCH;
 
                     launchState= LaunchState.IDLE;
+                    Thread.sleep(5000);
 
 
                 }
