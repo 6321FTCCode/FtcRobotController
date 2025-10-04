@@ -24,13 +24,15 @@ public class TeleOP extends OpMode {
         spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
         telemetry.addData("Hardware: ", "Initialized");
 
+        motorBL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         //motorFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     @Override
     public void loop() {
         //code that runs repeat
-        double speed = 0.75;
+        double speed = 0.9;
 
 //        float lTrigger = gamepad1.left_trigger;
 //        float rTrigger = gamepad1.right_trigger;
@@ -56,16 +58,16 @@ public class TeleOP extends OpMode {
 
         if (gamepad1.left_stick_x<0){
             //strafes left when left stick pushed to the left
-            motorFR.setPower(-speed);
+            motorFR.setPower(speed);
             motorFL.setPower(-speed);
             motorBL.setPower(speed);
-            motorBR.setPower(speed);
+            motorBR.setPower(-speed);
         } else if (gamepad1.left_stick_x>0) {
             //strafes right when 
-            motorFR.setPower(speed);
+            motorFR.setPower(-speed);
             motorFL.setPower(speed);
             motorBL.setPower(-speed);
-            motorBR.setPower(-speed);
+            motorBR.setPower(speed);
         } else {
             motorFR.setPower(0);
             motorFL.setPower(0);
@@ -92,7 +94,7 @@ public class TeleOP extends OpMode {
         }
 
         if (gamepad1.right_trigger>0){
-            spinner1.setPower(-0.8);
+            spinner1.setPower(0.8);
         } else {
             spinner1.setPower(0);
         }
