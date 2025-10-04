@@ -261,6 +261,10 @@ public class TeleOP extends OpMode {
                 launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
                 if (launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
                     launchState = LaunchState.LAUNCH;
+
+                    launchState= LaunchState.IDLE;
+
+
                 }
                 break;
             case LAUNCH:
