@@ -217,7 +217,7 @@ public class TeleOP extends OpMode {
         if (gamepad1.y) {
             launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
         } else if (gamepad1.b) { // stop flywheel
-            launcher.setVelocity(STOP_SPEED);
+            launcher.setPower(STOP_SPEED);
         }
 
         /*
@@ -263,9 +263,6 @@ public class TeleOP extends OpMode {
                 launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
                 if (launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
                     launchState = LaunchState.LAUNCH;
-
-                    launchState= LaunchState.IDLE;
-                    Thread.sleep(5000);
 
 
                 }
