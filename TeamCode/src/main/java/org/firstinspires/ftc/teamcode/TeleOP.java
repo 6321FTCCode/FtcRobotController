@@ -58,14 +58,14 @@ public class TeleOP extends OpMode {
         } else if (gamepad1.left_stick_x<0){
             //strafes left when left stick pushed to the left
             motorFR.setPower(speed);
-            motorFL.setPower(-speed);
-            motorBL.setPower(speed);
+            motorFL.setPower(speed);
+            motorBL.setPower(-speed);
             motorBR.setPower(-speed);
         } else if (gamepad1.left_stick_x>0) {
             //strafes right when 
             motorFR.setPower(-speed);
-            motorFL.setPower(speed);
-            motorBL.setPower(-speed);
+            motorFL.setPower(-speed);
+            motorBL.setPower(speed);
             motorBR.setPower(speed);
         } else {
             motorFR.setPower(0);
