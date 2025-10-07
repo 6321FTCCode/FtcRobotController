@@ -172,7 +172,7 @@ public class TeleOP extends OpMode {
          * Much like our drivetrain motors, we set the left feeder servo to reverse so that they
          * both work to feed the ball into the robot.
          */
-        leftFeeder.setDirection(DcMotorSimple.Direction.REVERSE);
+//        leftFeeder.setDirection(DcMotorSimple.Direction.REVERSE);
 
         /*
          * Tell the driver that initialization is complete.
@@ -268,8 +268,8 @@ public class TeleOP extends OpMode {
                 }
                 break;
             case LAUNCH:
-                leftFeeder.setPower(FULL_SPEED);
-                rightFeeder.setPower(FULL_SPEED);
+                leftFeeder.setPower(-1);
+                rightFeeder.setPower(1);
                 feederTimer.reset();
                 launchState = LaunchState.LAUNCHING;
                 break;
