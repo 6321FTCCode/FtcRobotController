@@ -214,16 +214,29 @@ public class TeleOP extends OpMode {
          * Here we give the user control of the speed of the launcher motor without automatically
          * queuing a shot.
          */
-        if (gamepad1.y) {
-            launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
-        } else if (gamepad1.b) { // stop flywheel
-            launcher.setPower(STOP_SPEED);
+//        if (gamepad1.y) {
+//            launcher.setVelocity(0.5);
+//        } else if (gamepad1.b) { // stop flywheel
+//            launcher.setPower(STOP_SPEED);
+//        }
+
+        if (gamepad1.left_bumper){
+            leftFeeder.setPower(-1);
+            rightFeeder.setPower(1);
+        } else {
+            rightFeeder.setPower(0);
+            leftFeeder.setPower(0);
         }
 
+        if (gamepad1.right_bumper){
+            launcher.setPower(0.05);
+        } else {
+            launcher.setPower(0);
+        }
         /*
          * Now we call our "Launch" function.
          */
-        launch(gamepad1.rightBumperWasPressed());
+//        launch(gamepad1.rightBumperWasPressed());
 
         /*
          * Show the state and motor powers
@@ -252,34 +265,34 @@ public class TeleOP extends OpMode {
         rightDrive.setPower(rightPower);
     }
 
-    void launch(boolean shotRequested) {
-        switch (launchState) {
-            case IDLE:
-                if (shotRequested) {
-                    launchState = LaunchState.SPIN_UP;
-                }
-                break;
-            case SPIN_UP:
-                launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
-                if (launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
-                    launchState = LaunchState.LAUNCH;
-
-
-                }
-                break;
-            case LAUNCH:
-                leftFeeder.setPower(-1);
-                rightFeeder.setPower(1);
-                feederTimer.reset();
-                launchState = LaunchState.LAUNCHING;
-                break;
-            case LAUNCHING:
-                if (feederTimer.seconds() > FEED_TIME_SECONDS) {
-                    launchState = LaunchState.IDLE;
-                    leftFeeder.setPower(STOP_SPEED);
-                    rightFeeder.setPower(STOP_SPEED);
-                }
-                break;
-        }
-    }
+//    void launch(boolean shotRequested) {
+//        switch (launchState) {
+//            case IDLE:
+//                if (shotRequested) {
+//                    launchState = LaunchState.SPIN_UP;
+//                }
+//                break;
+//            case SPIN_UP:
+//                launcher.setVelocity(0.5);
+//                if (launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
+//                    launchState = LaunchState.LAUNCH;
+//
+//
+//                }
+//                break;
+//            case LAUNCH:
+//                leftFeeder.setPower(-1);
+//                rightFeeder.setPower(1);
+//                feederTimer.reset();
+//                launchState = LaunchState.LAUNCHING;
+//                break;
+//            case LAUNCHING:
+//                if (feederTimer.seconds() > FEED_TIME_SECONDS) {
+//                    launchState = LaunchState.IDLE;
+//                    leftFeeder.setPower(STOP_SPEED);
+//                    rightFeeder.setPower(STOP_SPEED);
+//                }
+//                break;
+//        }
+//    }
 }
