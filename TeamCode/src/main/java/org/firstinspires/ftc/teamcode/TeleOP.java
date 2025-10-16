@@ -257,6 +257,9 @@ public class TeleOP extends OpMode {
     void arcadeDrive(double forward, double rotate) {
         leftPower = forward + rotate;
         rightPower = forward - rotate;
+        telemetry.addData("LSTICKY",forward);
+        telemetry.addData("RSTICKX",rotate);
+        telemetry.update();
 
         /*
          * Send calculated power to wheels
