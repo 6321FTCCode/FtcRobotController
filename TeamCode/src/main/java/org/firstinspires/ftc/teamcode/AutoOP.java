@@ -5,7 +5,6 @@ import static java.lang.Math.sin;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-
 @Autonomous(name = "auto")
 public class AutoOP extends LinearOpMode {
 
