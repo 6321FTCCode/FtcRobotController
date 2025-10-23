@@ -14,7 +14,8 @@ public class TeleOP extends OpMode {
     DcMotor motorBL;
     DcMotor spinner1;
     DcMotor conveyor;
-
+    DcMotor launcherR;
+    DcMotor launcherL;
     @Override
     public void init() {
         //code that runs once when INIT is pressed
@@ -24,6 +25,8 @@ public class TeleOP extends OpMode {
         motorBL  = hardwareMap.get(DcMotor.class, "back_left_motor");
         spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
         conveyor = hardwareMap.get(DcMotor.class, "conveyor");
+        launcherL = hardwareMap.get(DcMotor.class, "launcher_left");
+        launcherR = hardwareMap.get(DcMotor.class, "launcher_right");
         telemetry.addData("Hardware: ", "Initialized");
 
         motorFR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -32,6 +35,8 @@ public class TeleOP extends OpMode {
         motorBL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         spinner1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         conveyor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        launcherL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        launcherR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         //motorFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
@@ -92,16 +97,20 @@ public class TeleOP extends OpMode {
             motorBR.setPower(0);
         }
 
-        if (gamepad1.right_trigger>0){
+        if (gamepad2.right_trigger>0){
             spinner1.setPower(0.8);
         } else {
             spinner1.setPower(0);
         }
 
-        if (gamepad1.y){
+        if (gamepad2.y){
             conveyor.setPower(1);
+            launcherR.setPower(0.5); //counterclockwise
+            launcherL.setPower(-0.5); //clockwise
         } else {
             conveyor.setPower(0);
+            launcherR.setPower(0);
+            launcherL.setPower(0);
         }
 //        if (gamepad1.y) {
 //            speed = 1;
