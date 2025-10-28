@@ -105,8 +105,8 @@ public class TeleOP extends OpMode {
 
         if (gamepad2.y){
             conveyor.setPower(1);
-            launcherR.setPower(0.5); //counterclockwise
-            launcherL.setPower(-0.5); //clockwise
+            launcherR.setPower(0.75); //counterclockwise
+            launcherL.setPower(-0.75); //clockwise
         } else {
             conveyor.setPower(0);
             launcherR.setPower(0);
