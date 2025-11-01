@@ -13,6 +13,9 @@ public class AutoOP extends LinearOpMode {
     DcMotor motorBR;
     DcMotor motorBL;
     DcMotor spinner1;
+    DcMotor conveyor;
+    DcMotor launcherL;
+    DcMotor launcherR;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -21,6 +24,9 @@ public class AutoOP extends LinearOpMode {
         motorBR  = hardwareMap.get(DcMotor.class, "back_right_motor");
         motorBL  = hardwareMap.get(DcMotor.class, "back_left_motor");
         spinner1 = hardwareMap.get(DcMotor.class, "spinner1");
+        conveyor = hardwareMap.get(DcMotor.class, "conveyor");
+        launcherL = hardwareMap.get(DcMotor.class, "launcher_left");
+        launcherR = hardwareMap.get(DcMotor.class, "launcher_right");
         telemetry.addData("Hardware: ", "Initialized");
 
         motorFR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
