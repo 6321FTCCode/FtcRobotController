@@ -84,20 +84,24 @@ public class TeleOP extends OpMode {
         telemetry.addData("BR pwr: ",backRightPower);
 
         if (gamepad2.right_trigger>0){
-            spinner1.setPower(0.8);
+            spinner1.setPower(1);
         } else {
             spinner1.setPower(0);
         }
 
         if (gamepad2.y){
             conveyor.setPower(1);
-            launcherR.setPower(-1); //counterclockwise
-            launcherL.setPower(1); //clockwise
+            launcherR.setPower(-0.97); //counterclockwise
+            launcherL.setPower(0.97); //clockwise
+        } else if (gamepad2.left_trigger>0){
+            conveyor.setPower(-1);
+            spinner1.setPower(-1);
         } else {
             conveyor.setPower(0);
             launcherR.setPower(0);
             launcherL.setPower(0);
         }
+
 
 //        if (gamepad2.left_stick_y<0){
 //            //forwards when gamepad is pushed upwards
