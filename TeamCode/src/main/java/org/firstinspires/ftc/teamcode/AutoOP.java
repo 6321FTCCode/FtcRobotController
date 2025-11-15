@@ -5,7 +5,7 @@ import static java.lang.Math.sin;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-@Autonomous(name = "auto")
+@Autonomous(name = "redBack")
 public class AutoOP extends LinearOpMode {
 
     DcMotor motorFR;
@@ -40,7 +40,7 @@ public class AutoOP extends LinearOpMode {
         motorFL.setPower(-1);
         motorBL.setPower(-1);
         motorBR.setPower(1);
-        Thread.sleep(2000);
+        Thread.sleep(100);
         motorFR.setPower(0);
         motorFL.setPower(0);
         motorBL.setPower(0);

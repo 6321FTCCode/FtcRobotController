@@ -67,8 +67,8 @@ public class TeleOP extends OpMode {
 
         double frontLeftPower = (axial - lateral + yaw);
         double backLeftPower = (axial + lateral + yaw);
-        double frontRightPower = (axial - lateral - yaw);
-        double backRightPower = (axial + lateral - yaw);
+        double frontRightPower = (axial + lateral - yaw);
+        double backRightPower = (axial - lateral - yaw);
 
         motorFL.setPower(frontLeftPower);
         motorBL.setPower(backLeftPower);
@@ -82,25 +82,35 @@ public class TeleOP extends OpMode {
         telemetry.addData("BL pwr: ",backLeftPower);
         telemetry.addData("FR pwr: ",frontRightPower);
         telemetry.addData("BR pwr: ",backRightPower);
+        telemetry.addData("Actual FL pwr: ",motorFL.getPower());
+        telemetry.addData("Actual BL pwr: ",motorBL.getPower());
+        telemetry.addData("Actual FR pwr: ",motorFR.getPower());
+        telemetry.addData("Actual BR pwr: ",motorBR.getPower());
 
         if (gamepad2.right_trigger>0){
+            spinner1.setPower(-1);
+        } else if (gamepad2.left_trigger!=0){
             spinner1.setPower(1);
         } else {
             spinner1.setPower(0);
         }
-
-        if (gamepad2.y){
-            conveyor.setPower(1);
-            launcherR.setPower(-0.97); //counterclockwise
-            launcherL.setPower(0.97); //clockwise
-        } else if (gamepad2.left_trigger>0){
-            conveyor.setPower(-1);
-            spinner1.setPower(-1);
+        if (gamepad2.x){
+            launcherR.setPower(0.95); //counterclockwise
+            launcherL.setPower(0.95); //clockwise
         } else {
-            conveyor.setPower(0);
             launcherR.setPower(0);
             launcherL.setPower(0);
         }
+
+
+        if (gamepad2.a){
+            conveyor.setPower(1);
+        }  else if (gamepad2.left_trigger!=0){
+            conveyor.setPower(-1);
+        } else {
+            conveyor.setPower(0);
+        }
+
 
 
 //        if (gamepad2.left_stick_y<0){
