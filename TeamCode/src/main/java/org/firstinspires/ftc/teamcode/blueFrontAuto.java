@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
-import static java.lang.Math.sin;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-@Autonomous(name = "redBack")
-public class AutoOP extends LinearOpMode {
+@Autonomous(name = "BlueFront")
+public class blueFrontAuto extends LinearOpMode {
 
     DcMotor motorFR;
     DcMotor motorFL;
@@ -36,15 +34,44 @@ public class AutoOP extends LinearOpMode {
         spinner1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         waitForStart();
-        motorFR.setPower(1);
-        motorFL.setPower(-1);
-        motorBL.setPower(-1);
-        motorBR.setPower(1);
-        Thread.sleep(100);
+        motorFR.setPower(0.5);
+        motorFL.setPower(-0.5);
+        motorBL.setPower(-0.5);
+        motorBR.setPower(0.5);
+        Thread.sleep(2500);
         motorFR.setPower(0);
         motorFL.setPower(0);
         motorBL.setPower(0);
         motorBR.setPower(0);
+        launcherL.setPower(0.95);
+        launcherR.setPower(0.95);
+        Thread.sleep(1000);
+        spinner1.setPower(-1);
+        conveyor.setPower(0.5);
+        Thread.sleep(100);
+        for (int i=0;i<6;i++){
+            conveyor.setPower(0);
+            Thread.sleep(400);
+            conveyor.setPower(0.5);
+            Thread.sleep(400);
+        }
+        launcherR.setPower(0);
+        launcherL.setPower(0);
+        spinner1.setPower(0);
+        conveyor.setPower(0);
+        motorFR.setPower(-1);
+        motorFL.setPower(-1);
+        motorBL.setPower(1);
+        motorBR.setPower(1);
+        Thread.sleep(750);
+        motorFR.setPower(0);
+        motorFL.setPower(0);
+        motorBL.setPower(0);
+        motorBR.setPower(0);
+
+
+
+
 
 //        while (opModeIsActive()) {
 //            leftMotor.setPower(0.7);

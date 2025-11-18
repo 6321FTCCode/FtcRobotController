@@ -52,10 +52,10 @@ public class TeleOP extends OpMode {
     @Override
     public void loop() {
         //code that runs repeat
-        motorFL.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBL.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorFR.setDirection(DcMotorSimple.Direction.FORWARD);
-        motorBR.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorFL.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorBL.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorFR.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBR.setDirection(DcMotorSimple.Direction.REVERSE);
 
         double speed = 1;
         double speed2 = 0.1;
@@ -65,10 +65,10 @@ public class TeleOP extends OpMode {
         double yaw = gamepad1.right_stick_x;
 
 
-        double frontLeftPower = (axial - lateral + yaw);
-        double backLeftPower = (axial + lateral + yaw);
-        double frontRightPower = (axial + lateral - yaw);
-        double backRightPower = (axial - lateral - yaw);
+        double frontLeftPower = (-axial - lateral - yaw);
+        double backLeftPower = (-axial + lateral - yaw);
+        double frontRightPower = (-axial + lateral + yaw);
+        double backRightPower = (-axial - lateral + yaw);
 
         motorFL.setPower(frontLeftPower);
         motorBL.setPower(backLeftPower);
@@ -94,14 +94,16 @@ public class TeleOP extends OpMode {
         } else {
             spinner1.setPower(0);
         }
-        if (gamepad2.x){
-            launcherR.setPower(0.95); //counterclockwise
-            launcherL.setPower(0.95); //clockwise
+        if (gamepad2.x) {
+            launcherR.setPower(0.93); //counterclockwise
+            launcherL.setPower(0.93); //clockwise
+        } else if(gamepad2.y) {
+            launcherR.setPower(0.88); //counterclockwise
+            launcherL.setPower(0.88); //clockwise
         } else {
             launcherR.setPower(0);
             launcherL.setPower(0);
         }
-
 
         if (gamepad2.a){
             conveyor.setPower(1);
