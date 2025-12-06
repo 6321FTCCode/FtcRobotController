@@ -95,11 +95,14 @@ public class TeleOP extends OpMode {
             spinner1.setPower(0);
         }
         if (gamepad2.x) {
-            launcherR.setPower(0.93); //counterclockwise
-            launcherL.setPower(0.93); //clockwise
+            launcherR.setPower(0.75); //counterclockwise
+            launcherL.setPower(0.75); //clockwise
         } else if(gamepad2.y) {
-            launcherR.setPower(0.88); //counterclockwise
-            launcherL.setPower(0.88); //clockwise
+            launcherR.setPower(0.85); //counterclockwise
+            launcherL.setPower(0.85); //clockwise
+        } else if(gamepad2.b) {
+                launcherR.setPower(0.79); //counterclockwise
+                launcherL.setPower(0.79); //clockwise
         } else {
             launcherR.setPower(0);
             launcherL.setPower(0);

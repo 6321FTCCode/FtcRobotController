@@ -3,8 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-@Autonomous(name = "RedFront")
-public class redFrontAuto extends LinearOpMode {
+@Autonomous(name = "RedBack")
+public class redBackAuto extends LinearOpMode {
 
     DcMotor motorFR;
     DcMotor motorFL;
@@ -34,17 +34,23 @@ public class redFrontAuto extends LinearOpMode {
         spinner1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         waitForStart();
+        motorFR.setPower(-0.5);
+        motorFL.setPower(0.5);
+        motorBL.setPower(0.5);
+        motorBR.setPower(-0.5);
+        Thread.sleep(3200);
+
+        motorFR.setPower(-0.50);
+        motorFL.setPower(-0.50);
+        motorBL.setPower(-0.50);
+        motorBR.setPower(-0.50);
+        Thread.sleep(425);
+
         motorFR.setPower(0.5);
         motorFL.setPower(-0.5);
         motorBL.setPower(-0.5);
         motorBR.setPower(0.5);
-        Thread.sleep(2750);
-
-        motorFR.setPower(0.25);
-        motorFL.setPower(0.25);
-        motorBL.setPower(-0.25);
-        motorBR.setPower(-0.25);
-        Thread.sleep(200);
+        Thread.sleep(350);
 
         motorFR.setPower(0);
         motorFL.setPower(0);
@@ -73,7 +79,7 @@ public class redFrontAuto extends LinearOpMode {
         motorFL.setPower(1);
         motorBL.setPower(-1);
         motorBR.setPower(-1);
-        Thread.sleep(500);
+        Thread.sleep(650);
 
         motorFR.setPower(-0.5);
         motorFL.setPower(0.5);
