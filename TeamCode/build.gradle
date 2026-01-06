@@ -32,6 +32,8 @@ repositories {
 dependencies {
     implementation project(':FtcRobotController')
     implementation("dev.frozenmilk.sinister:Sloth:0.2.4")
+    implementation "org.solverslib:core:0.3.3" // core
+    implementation "org.solverslib:pedroPathing:0.3.3"
 }
 buildscript {
     repositories {
@@ -43,4 +45,5 @@ buildscript {
     dependencies {
         classpath "dev.frozenmilk:Load:0.2.4"
     }
+
 }

@@ -95,14 +95,17 @@ public class TeleOP extends OpMode {
             spinner1.setPower(0);
         }
         if (gamepad2.x) {
+            //Close to the scoring area
             launcherR.setPower(0.75); //counterclockwise
             launcherL.setPower(0.75); //clockwise
         } else if(gamepad2.y) {
-            launcherR.setPower(0.85); //counterclockwise
-            launcherL.setPower(0.85); //clockwise
+            //In scoring triangle but farther
+            launcherR.setPower(0.80); //counterclockwise
+            launcherL.setPower(0.80); //clockwise
         } else if(gamepad2.b) {
-                launcherR.setPower(0.79); //counterclockwise
-                launcherL.setPower(0.79); //clockwise
+            //Far shot
+            launcherR.setPower(0.87); //counterclockwise
+            launcherL.setPower(0.87); //clockwise
         } else {
             launcherR.setPower(0);
             launcherL.setPower(0);

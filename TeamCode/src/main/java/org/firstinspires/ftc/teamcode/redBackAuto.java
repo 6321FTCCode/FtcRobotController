@@ -44,21 +44,21 @@ public class redBackAuto extends LinearOpMode {
         motorFL.setPower(-0.50);
         motorBL.setPower(-0.50);
         motorBR.setPower(-0.50);
-        Thread.sleep(425);
+        Thread.sleep(400);
 
         motorFR.setPower(0.5);
         motorFL.setPower(-0.5);
         motorBL.setPower(-0.5);
         motorBR.setPower(0.5);
-        Thread.sleep(350);
+        Thread.sleep(325);
 
         motorFR.setPower(0);
         motorFL.setPower(0);
         motorBL.setPower(0);
         motorBR.setPower(0);
-        launcherL.setPower(0.87);
-        launcherR.setPower(0.87);
-        Thread.sleep(600);
+        launcherL.setPower(0.83);
+        launcherR.setPower(0.83);
+        Thread.sleep(1000);
 
         conveyor.setPower(0.5);
         Thread.sleep(400);
@@ -66,7 +66,7 @@ public class redBackAuto extends LinearOpMode {
         spinner1.setPower(-1);
         for (int i=0;i<3;i++){
             conveyor.setPower(0);
-            Thread.sleep(600);
+            Thread.sleep(800);
             conveyor.setPower(0.5);
             Thread.sleep(550);
         }
@@ -85,7 +85,7 @@ public class redBackAuto extends LinearOpMode {
         motorFL.setPower(0.5);
         motorBL.setPower(0.5);
         motorBR.setPower(-0.5);
-        Thread.sleep(500);
+        Thread.sleep(400);
 
         motorFR.setPower(0);
         motorFL.setPower(0);

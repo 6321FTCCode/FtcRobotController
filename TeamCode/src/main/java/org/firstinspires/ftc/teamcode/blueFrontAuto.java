@@ -38,7 +38,7 @@ public class blueFrontAuto extends LinearOpMode {
         motorFL.setPower(-0.5);
         motorBL.setPower(-0.5);
         motorBR.setPower(0.5);
-        Thread.sleep(2750);
+        Thread.sleep(1925);
 
         motorFR.setPower(-0.25);
         motorFL.setPower(-0.25);
@@ -50,19 +50,19 @@ public class blueFrontAuto extends LinearOpMode {
         motorFL.setPower(0);
         motorBL.setPower(0);
         motorBR.setPower(0);
-        launcherL.setPower(0.86);
-        launcherR.setPower(0.86);
-        Thread.sleep(600);
+        launcherL.setPower(0.79);
+        launcherR.setPower(0.79);
+        Thread.sleep(1000);
 
         conveyor.setPower(0.5);
         Thread.sleep(400);
 
         spinner1.setPower(-1);
-        for (int i=0;i<3;i++){
+        for (int i=0;i<6;i++){
             conveyor.setPower(0);
-            Thread.sleep(600);
+            Thread.sleep(1100);
             conveyor.setPower(0.5);
-            Thread.sleep(550);
+            Thread.sleep(250);
         }
 
         launcherR.setPower(0);
@@ -73,13 +73,13 @@ public class blueFrontAuto extends LinearOpMode {
         motorFL.setPower(-1);
         motorBL.setPower(1);
         motorBR.setPower(1);
-        Thread.sleep(500);
+        Thread.sleep(700);
 
         motorFR.setPower(-0.5);
         motorFL.setPower(0.5);
         motorBL.setPower(0.5);
         motorBR.setPower(-0.5);
-        Thread.sleep(500);
+        Thread.sleep(600);
 
         motorFR.setPower(0);
         motorFL.setPower(0);
