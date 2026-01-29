@@ -836,8 +836,10 @@ class HeadingTuner extends OpMode {
         follower.deactivateAllPIDFs();
         follower.activateHeading();
         forwards = new Path(new BezierLine(new Pose(72,72), new Pose(DISTANCE + 72,72)));
+        forwards.setHeadingConstraint(20);
         forwards.setConstantHeadingInterpolation(0);
         backwards = new Path(new BezierLine(new Pose(DISTANCE + 72,72), new Pose(72,72)));
+        forwards.setHeadingConstraint(20);
         backwards.setConstantHeadingInterpolation(0);
         follower.followPath(forwards);
     }
@@ -862,6 +864,7 @@ class HeadingTuner extends OpMode {
         }
 
         telemetryM.debug("Turn the robot manually to test the Heading PIDF(s).");
+        telemetryM.debug("Heading:"+follower.getHeading());
         telemetryM.update(telemetry);
     }
 }

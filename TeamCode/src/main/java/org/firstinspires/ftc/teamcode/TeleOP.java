@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp (name = "main")
 public class TeleOP extends OpMode {
@@ -20,6 +21,8 @@ public class TeleOP extends OpMode {
     DcMotor conveyor;
     DcMotor launcherR;
     DcMotor launcherL;
+    Servo rampServo;
+
     @Override
     public void init() {
         //code that runs once when INIT is pressed
@@ -31,6 +34,8 @@ public class TeleOP extends OpMode {
         conveyor = hardwareMap.get(DcMotor.class, "conveyor");
         launcherL = hardwareMap.get(DcMotor.class, "launcher_left");
         launcherR = hardwareMap.get(DcMotor.class, "launcher_right");
+        rampServo = hardwareMap.get(Servo.class, "rampServo");
+
         telemetry.addData("Hardware: ", "Initialized");
 
         motorFR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -75,8 +80,8 @@ public class TeleOP extends OpMode {
         motorFR.setPower(frontRightPower);
         motorBR.setPower(backRightPower);
 
-        telemetry.addData("axial: ",axial);
-        telemetry.addData("lateral: ",lateral);
+        telemetry.addData("Strafe ticks", conveyor.getCurrentPosition());
+        telemetry.update();
         telemetry.addData("yaw: ",yaw);
         telemetry.addData("FL pwr: ",frontLeftPower);
         telemetry.addData("BL pwr: ",backLeftPower);
@@ -96,16 +101,16 @@ public class TeleOP extends OpMode {
         }
         if (gamepad2.x) {
             //Close to the scoring area
-            launcherR.setPower(0.75); //counterclockwise
-            launcherL.setPower(0.75); //clockwise
-        } else if(gamepad2.y) {
-            //In scoring triangle but farther
             launcherR.setPower(0.80); //counterclockwise
             launcherL.setPower(0.80); //clockwise
+        } else if(gamepad2.y) {
+            //In scoring triangle but farther
+            launcherR.setPower(0.90); //counterclockwise
+            launcherL.setPower(0.83); //clockwise
         } else if(gamepad2.b) {
             //Far shot
-            launcherR.setPower(0.87); //counterclockwise
-            launcherL.setPower(0.87); //clockwise
+            launcherR.setPower(0.97); //counterclockwise
+            launcherL.setPower(0.97); //clockwise
         } else {
             launcherR.setPower(0);
             launcherL.setPower(0);
@@ -118,6 +123,12 @@ public class TeleOP extends OpMode {
         } else {
             conveyor.setPower(0);
         }
+
+//        if (gamepad2.right_bumper){
+//            rampServo.setPosition(0);
+//        } else{
+//            rampServo.setPosition(1);
+//        }
 
 
 
